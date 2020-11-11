@@ -55,9 +55,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Enemy_behaviour.cs" />
      <Compile Include="Assets\Scripts\HotZoneCheck.cs" />
-     <Compile Include="Assets\Scripts\triggerAreaCheck.cs" />
+     <Compile Include="Assets\Scripts\Player_Controller.cs" />
+     <Compile Include="Assets\Scripts\areaActivacion.cs" />
+     <Compile Include="Assets\Scripts\comportamientoMinotauro.cs" />
      <None Include="Assets\public-license.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Knight/Knight/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

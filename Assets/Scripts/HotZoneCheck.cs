@@ -4,39 +4,39 @@ using UnityEngine;
 
 public class HotZoneCheck : MonoBehaviour
 {
-    private Enemy_behaviour enemyParent;
-    private bool inRange;
+    private comportamientoMinotauro comportamientoMino;
+    private bool enRango;
     private Animator anim;
 
     private void Awake()
     {
-        enemyParent = GetComponentInParent<Enemy_behaviour>();
+        comportamientoMino = GetComponentInParent<comportamientoMinotauro>();
         anim = GetComponentInParent<Animator>();
 
     }
     private void Update()
     {
-        if(inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("minotauro_ataque"))
+        if(enRango && !anim.GetCurrentAnimatorStateInfo(0).IsName("minotauro_ataque"))
         {
-            enemyParent.Flip();
+            comportamientoMino.Rotar();
         }
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            inRange = true;
+            enRango = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            inRange = false;
+            enRango = false;
             gameObject.SetActive(false);
-            enemyParent.triggerArea.SetActive(true);
-            enemyParent.inRange = false;
-            enemyParent.SelectTarget();
+            comportamientoMino.areaActivacion.SetActive(true);
+            comportamientoMino.enRango = false;
+            comportamientoMino.SeleccionarObjetivo();
         }
     }
 
