@@ -17,8 +17,8 @@ public class Enemy_behaviour : MonoBehaviour
     public float timer; //Timer for cooldown between attacks
     public Transform leftLimit;
     public Transform rightLimit;
-    [HideInInspector] private Transform target;
-    [HideInInspector] private bool inRange; //Check if Player is in range
+    [HideInInspector] public Transform target;
+    [HideInInspector] public bool inRange; //Check if Player is in range
     public GameObject hotZone;
     public GameObject triggerArea;
     #endregion
@@ -45,7 +45,7 @@ public class Enemy_behaviour : MonoBehaviour
             Move();
         }
 
-        if (!InsideOfLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_attack"))
+        if (!InsideOfLimits() && !inRange && !anim.GetCurrentAnimatorStateInfo(0).IsName("Minotauro_ataque"))
         {
             SelectTarget();
         }
@@ -75,15 +75,15 @@ public class Enemy_behaviour : MonoBehaviour
         if (cooling)
         {
             Cooldown();
-            anim.SetBool("Attack", false);
+            anim.SetBool("atacar", false);
         }
     }
 
     void Move()
     {
-        anim.SetBool("canWalk", true);
+        anim.SetBool("andar", true);
 
-        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_attack"))
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Minotauro_ataque"))
         {
             Vector2 targetPosition = new Vector2(target.position.x, transform.position.y);
 
@@ -96,8 +96,8 @@ public class Enemy_behaviour : MonoBehaviour
         timer = intTimer; //Reset Timer when Player enter Attack Range
         attackMode = true; //To check if Enemy can still attack or not
 
-        anim.SetBool("canWalk", false);
-        anim.SetBool("Attack", true);
+        anim.SetBool("andar", false);
+        anim.SetBool("atacar", true);
     }
 
     void Cooldown()
@@ -115,7 +115,7 @@ public class Enemy_behaviour : MonoBehaviour
     {
         cooling = false;
         attackMode = false;
-        anim.SetBool("Attack", false);
+        anim.SetBool("atacar", false);
     }
 
     public void TriggerCooling()

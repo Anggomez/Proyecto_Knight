@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 248304586}
   - component: {fileID: 248304588}
   - component: {fileID: 248304587}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6670,7 +6670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843746812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.767, y: 3.991, z: -10}
+  m_LocalPosition: {x: -3.78, y: 4.29, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6716,6 +6716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 880832846}
   - component: {fileID: 880832847}
+  - component: {fileID: 880832848}
   m_Layer: 8
   m_Name: triggerArea
   m_TagString: Untagged
@@ -6731,7 +6732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880832845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.398, y: -0.064, z: 0}
+  m_LocalPosition: {x: 0.949, y: -0.046, z: 0}
   m_LocalScale: {x: 1.8374995, y: 0.3249991, z: 1}
   m_Children: []
   m_Father: {fileID: 1834913639}
@@ -6763,6 +6764,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &880832848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880832845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b420e377de1b34842909efec14aeb3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &904342282
 GameObject:
   m_ObjectHideFlags: 0
@@ -6817,11 +6830,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4439388078255176, guid: 6e5063a3102e40f4c89b525aefdd62d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4
+      value: -9.97
       objectReference: {fileID: 0}
     - target: {fileID: 4439388078255176, guid: 6e5063a3102e40f4c89b525aefdd62d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.34
+      value: 1.66
       objectReference: {fileID: 0}
     - target: {fileID: 4439388078255176, guid: 6e5063a3102e40f4c89b525aefdd62d4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7014,7 +7027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648782188}
   - component: {fileID: 1648782189}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: hotZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7045,7 +7058,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -7090,5 +7103,7 @@ MonoBehaviour:
   timer: 3
   leftLimit: {fileID: 759026562}
   rightLimit: {fileID: 852347780}
+  target: {fileID: 0}
+  inRange: 0
   hotZone: {fileID: 1648782187}
-  triggerArea: {fileID: 880832845}
+  triggerArea: {fileID: 0}
