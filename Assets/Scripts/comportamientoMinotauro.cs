@@ -152,7 +152,6 @@ public class comportamientoMinotauro : MonoBehaviour
         }
         else
         {
-            Debug.Log("Twist");
             rotacion.y = 0;
         }
 

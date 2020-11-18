@@ -363,8 +363,9 @@ GameObject:
   - component: {fileID: 263901075}
   - component: {fileID: 263901074}
   - component: {fileID: 263901073}
+  - component: {fileID: 263901076}
   m_Layer: 5
-  m_Name: BotonRegistrar
+  m_Name: BotonIniciarSesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,18 +433,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 263901074}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 997210530}
-        m_MethodName: cerrarJuego
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
+      m_Calls: []
 --- !u!114 &263901074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +470,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263901071}
   m_CullTransparentMesh: 0
+--- !u!114 &263901076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263901071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c17d70b17a2894e9edff1892974b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textoEditableUsuario: {fileID: 1169626643}
+  textoEditableContrasegna: {fileID: 2135070340}
+  textoEditableEmail: {fileID: 725473815}
+  cadenaConexion: 
 --- !u!1 &315457655
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +498,7 @@ GameObject:
   - component: {fileID: 315457658}
   - component: {fileID: 315457657}
   m_Layer: 5
-  m_Name: IniciarSesion
+  m_Name: BotonRegistrarse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +554,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Iniciar sesion
+  m_Text: 'Registrarse
 
 '
 --- !u!222 &315457658
@@ -1304,7 +1310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.8509804}
+  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0.8509804}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1505,7 +1511,7 @@ GameObject:
   - component: {fileID: 1162361942}
   - component: {fileID: 1162361941}
   m_Layer: 5
-  m_Name: BotonLogin
+  m_Name: BotonRegistrarse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1573,18 +1579,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1162361942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 997210530}
-        m_MethodName: cerrarJuego
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
+      m_Calls: []
 --- !u!114 &1162361942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2017,7 +2012,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
 --- !u!114 &1238298700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2282,7 +2277,7 @@ GameObject:
   - component: {fileID: 1911464190}
   - component: {fileID: 1911464189}
   m_Layer: 5
-  m_Name: Registrar
+  m_Name: Iniciar sesion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2338,7 +2333,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Registrar
+  m_Text: 'Iniciar sesion
 
 '
 --- !u!222 &1911464190
