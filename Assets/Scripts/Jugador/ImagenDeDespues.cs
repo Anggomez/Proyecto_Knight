@@ -5,21 +5,17 @@ using UnityEngine;
 public class ImagenDeDespues : MonoBehaviour
 {
     [SerializeField]
-    private float tiempoActivacion = 0.1f;
-    private float tiempoActivado;
-    private float alpha;
+    private float tiempoActivacion = 0.1f, tiempoActivado, alpha;
     [SerializeField]
-    private float alphaSet = 0.8f;
-    private float multiplicadorAlpha = 0.85f;
+    private float alphaSet = 0.8f, multiplicadorAlpha = 0.85f;
 
     private Transform jugador;
 
-    private SpriteRenderer SR;
-    private SpriteRenderer jugadorSR;
+    private SpriteRenderer SR, jugadorSR;
 
     private Color color;
 
-    private void OnEnable()
+    private void OnEnable() // Cuando se habilita
     {
         SR = GetComponent<SpriteRenderer>();
         jugador = GameObject.FindGameObjectWithTag("Player").transform;
@@ -31,7 +27,7 @@ public class ImagenDeDespues : MonoBehaviour
         tiempoActivado = Time.time;
     }
 
-    private void Update()
+    private void Update() // Se llama en cada frame, e instancia una imagen con los ajustes dados(Cambia posicion y el alpha/intensidad)
     {
         alpha *= multiplicadorAlpha;
         color = new Color(1f, 1f, 1f, alpha);

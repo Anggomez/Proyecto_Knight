@@ -21,24 +21,24 @@ public class ControlesJugadorCombate : MonoBehaviour
     private Animator anim;
     #endregion
     #region metodos de Unity
-    private void Start()
+    private void Start() // Se llama al iniciar
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>(); // Referencia al animador
         anim.SetBool("puedeAtacar", combateHabilitado);
     }
 
-    private void Update()
+    private void Update() // Se le llama 1 vez por frame
     {
         ControlarEntradas();
         comprobarAtaques();
     }
-    private void OnDrawGizmos()
+    private void OnDrawGizmos() // Es un dibujo circular, que sustituye el tener que hacer la hitbox de un arma
     {
         Gizmos.DrawWireSphere(posicionAtaque.position, radioAtaque1);
     }
     #endregion
     #region metodos propios
-    private void ControlarEntradas()
+    private void ControlarEntradas() // Si el combate esta habilitado, comprueba el Input
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -52,7 +52,7 @@ public class ControlesJugadorCombate : MonoBehaviour
         }
     }
 
-    private void comprobarAtaques()
+    private void comprobarAtaques() //Comprueba el estado de los ataques
     {
         if (recibioEntrada)
         {
@@ -82,11 +82,10 @@ public class ControlesJugadorCombate : MonoBehaviour
         foreach (Collider2D collider in objetosDetectados)
         {
             collider.transform.parent.SendMessage("daniar", danioAtaque1);
-            //Instantiate hit particle
         }
     }
 
-    private void acabarAtaque1()
+    private void acabarAtaque1() // ajustes finalizar ataque
     {
         estaAtacando = false;
         anim.SetBool("estaAtacando", estaAtacando);

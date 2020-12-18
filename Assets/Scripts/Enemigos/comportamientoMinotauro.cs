@@ -17,16 +17,21 @@ public class comportamientoMinotauro : MonoBehaviour
     public GameObject minotauro; // Referencia al propio objeto
     public GameObject hotZone; // Zona en la que el enemigo te sigue
     public GameObject areaActivacion; // Area en la que detecta
+    public BoxCollider2D hachaCollider; // Collider del hacha
+
     #endregion
 
     #region Variables Privadas
     private Animator anim; // Objeto animator
     private float distancia; //Guarda distancia Enemigo-Jugador
     private bool modoAtaque;
+    private bool recibeDmg=true;
     private bool coolDown; // Cooldown del ataque
     private float intContador;
+    private bool puedeHacerDmg = true;
     [SerializeField] private float cantidadSaludTotal;
     private float cantidadSaludRestante;
+    [SerializeField] private GameObject canvas;
     private CotrolesJugador controlesJugador;
     private bool estaVivo = true;
 
@@ -35,13 +40,12 @@ public class comportamientoMinotauro : MonoBehaviour
     #region metodos de unity
     void Start() // Se ejecuta al lanzarse
     {
-        
         SeleccionarObjetivo();
         intContador = contador; // Guarda el primer valor del contador
         cantidadSaludRestante = cantidadSaludTotal;
         anim = GetComponent<Animator>();
         controlesJugador = GameObject.Find("Caballero").GetComponent<CotrolesJugador>();
-
+        //canvas = GameObject.FindGameObjectWithTag("MainCanvas").GetComponent<Canvas>();
     }
     
     void Update() // Se ejecuta en cada frame
@@ -57,7 +61,6 @@ public class comportamientoMinotauro : MonoBehaviour
             {
                 SeleccionarObjetivo();
             }
-
 
             if (enRango)
             {
@@ -181,19 +184,32 @@ public class comportamientoMinotauro : MonoBehaviour
     public void daniar(float cantidadDano)
     {
         cantidadSaludRestante -= cantidadDano;
-        if (cantidadSaludRestante <= 0.0f)
+        Debug.Log(cantidadSaludRestante);
+        if (cantidadSaludRestante <= 0.0f && recibeDmg)
         {
             estaVivo = false;
             morir();
         }
     }
-    private void morir()
+    private void morir() // desactiva el psj
     {
-
+        recibeDmg = false;
         anim.SetBool("estaMuerto", true);
         hotZone.SetActive(false);
         areaActivacion.SetActive(false);
+        canvas.SendMessage("aumentarContadorMinotauros");
     }
-    #endregion
+    private void morirDeltodo()
+    {
+        anim.SetBool("muertisimo", true);
+        anim.SetBool("estaMuerto", false);
+    }
+    private void comprobarHitBoxAtaqueM() //comprueba si ha golpeado al jugador
+    {
+        if (hachaCollider.IsTouching(controlesJugador.colliderJugador)){
 
+            controlesJugador.SendMessage("recibirDmg", 10);
+        }
+     }
+    #endregion
 }

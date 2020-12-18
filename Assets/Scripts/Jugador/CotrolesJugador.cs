@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CotrolesJugador : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class CotrolesJugador : MonoBehaviour
     #endregion
     #region variables publicas;
     public int cantidadSaltos = 1;
-
+    public float cantidadVida=1000;
     public float velocidadMovimiento = 10.0f;
     public float fuerzaSalto = 16.0f;
     public float radioComprobacionPared;
@@ -42,13 +43,14 @@ public class CotrolesJugador : MonoBehaviour
     public float velocidadDash;
     public float distanciaEntreImagenes;
     public float CooldownDash;
+    public Collider2D colliderJugador;
 
     public Vector2 direccionDejarCaerDePared, direccionSaltoPared;
+    public Transform ColliderGO;
 
     public Transform comprobarSuelo;
     public Transform comprobarPared;
     
-
     public LayerMask queEsSuelo;
     //public float ledgeClimbXOffset1 = 0f;
     //public float ledgeClimbYOffset1 = 0f;
@@ -416,6 +418,18 @@ public class CotrolesJugador : MonoBehaviour
             DireccionApuntadoPersonaje *= -1;
             estaMirandoALaDerecha = !estaMirandoALaDerecha;
             transform.Rotate(0.0f, 180.0f, 0.0f);
+        }
+    }
+    private void morir()
+    {
+        SceneManager.LoadScene("main");
+    }
+    private void recibirDmg(float dmg)
+    {
+        cantidadVida -= dmg;
+        if(cantidadVida <= 0)
+        {
+            morir();
         }
     }
 }

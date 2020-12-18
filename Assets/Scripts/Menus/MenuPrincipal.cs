@@ -130,8 +130,12 @@ public class MenuPrincipal : MonoBehaviour
     {
         SqlConnection sqlconn = new SqlConnection(cadenaConexion);
         sqlconn.Open();
-        String sqlcadena = "select * from Usuario where usuario = 'angel' and contrasegna = 'angel1234' and email = 'angeltaustez@gmail.com'";
-        // String sqlcadena = "select * from Usuario where usuario = '" + textoEditableUsuario + "' and contrasegna = '" + textoEditableContrasegna + "' and email = '" + textoEditableEmail + "'";
+
+        //String sqlcadena = "select * from Usuario where usuario = 'angel' and contrasegna = 'angel1234' and email = 'angeltaustez@gmail.com'";
+        String sqlcadena = String.Format("select * from Usuario where usuario like '%{0}%' and contrasegna like '%{1}%' and email like '%{2}%'", textoEditableUsuario.text ,textoEditableContrasegna.text ,textoEditableEmail.text);
+
+        // String sqlcadena = "select * from Usuario where usuario = '" + textoEditableUsuario.text + "' and contrasegna = '" + textoEditableContrasegna.text + "' and email = '" + textoEditableEmail.text + "'";
+        // sqlcadena.Replace("'", "''");
         SqlCommand cmd = new SqlCommand(sqlcadena, sqlconn);
         var reader = cmd.ExecuteReader();
         if (reader.Read())
